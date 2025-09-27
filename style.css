@@ -1,0 +1,199 @@
+/* --- Color Palette & Fonts --- */
+:root {
+    --bg-color: #fdf4f5; /* Light Pink Background */
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --header-font: 'Fredoka One', cursive;
+    --body-font: 'Poppins', sans-serif;
+    --accent-1: #ff8fab; /* Pink */
+    --accent-2: #f8c291; /* Peach */
+    --accent-3: #a2d2ff; /* Light Blue */
+    --accent-4: #bde0fe; /* Sky Blue */
+    --accent-5: #ffafcc; /* Lighter Pink */
+}
+
+/* --- General Styles --- */
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1, h2 {
+    font-family: var(--header-font);
+}
+
+/* --- Hero (Landing Page) Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, var(--accent-3), var(--accent-5));
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 15vw, 8rem);
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.hero-content h1 span {
+    display: inline-block;
+    animation: bounce 1s ease-in-out calc(var(--i) * 0.1s) forwards;
+    opacity: 0;
+}
+
+.hero-content .space {
+    width: 0.5em;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(50px); opacity: 0; }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.hero-content .name {
+    font-family: var(--header-font);
+    font-size: clamp(2rem, 8vw, 4rem);
+    color: var(--accent-2);
+    background: white;
+    padding: 0.2em 0.5em;
+    border-radius: 15px;
+    margin-top: 1rem;
+    animation: fadeIn 2s ease 1.5s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* --- Button & Scroll Down --- */
+#play-music-btn {
+    font-family: var(--body-font);
+    font-weight: 600;
+    background-color: var(--accent-1);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: fadeIn 2s ease 2s forwards;
+    opacity: 0;
+}
+
+#play-music-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff759c;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1rem;
+    color: white;
+    font-weight: 600;
+    animation: bounceUpDown 2s infinite ease-in-out;
+    opacity: 0;
+    animation-delay: 2.5s;
+}
+
+@keyframes bounceUpDown {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(10px); }
+}
+
+/* --- Card Sections for Scrolling --- */
+.card-section {
+    padding: 5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 90%;
+}
+
+.card h2 {
+    font-size: 2rem;
+    color: var(--accent-1);
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.card .final-wish {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--accent-1);
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+/* --- Scroll Animation Classes --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Footer --- */
+footer {
+    padding: 2rem;
+    background-color: var(--accent-2);
+    color: white;
+    font-weight: 600;
+}
+
+/* --- Confetti Animation --- */
+.confetti {
+    width: 15px; height: 15px;
+    background-color: var(--accent-1);
+    position: absolute;
+    left: 50%; top: -15px;
+    animation: confetti-fall 5s linear infinite;
+}
+.confetti:nth-child(2) { background-color: var(--accent-2); animation-delay: 0.5s; left: 10%; }
+.confetti:nth-child(3) { background-color: var(--accent-3); animation-delay: 1s; left: 20%; }
+.confetti:nth-child(4) { background-color: var(--accent-4); animation-delay: 1.5s; left: 30%; }
+.confetti:nth-child(5) { background-color: var(--accent-5); animation-delay: 2s; left: 40%; }
+.confetti:nth-child(6) { background-color: var(--accent-1); animation-delay: 2.5s; left: 60%; }
+.confetti:nth-child(7) { background-color: var(--accent-2); animation-delay: 3s; left: 70%; }
+.confetti:nth-child(8) { background-color: var(--accent-3); animation-delay: 3.5s; left: 80%; }
+.confietti:nth-child(9) { background-color: var(--accent-4); animation-delay: 4s; left: 90%; }
+.confietti:nth-child(10) { background-color: var(--accent-5); animation-delay: 4.5s; left: 100%; }
+
+@keyframes confetti-fall {
+    from { top: -15px; transform: rotate(0deg); }
+    to { top: 105vh; transform: rotate(720deg); }
+}
